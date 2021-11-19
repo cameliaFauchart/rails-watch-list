@@ -19,6 +19,7 @@
 </div>
 <div class="card">
   <% @list.bookmarks.each do |bookmark| %>
+    
     <div class="card-body">
     <h5 class="card-title"><%= bookmark.movie.title %></h5>
     <p class="btn btn-outline-light"><%= link_to bookmark.movie.rating, new_list_bookmark_path(@list) %>⭐</p>
