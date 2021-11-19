@@ -1,5 +1,18 @@
-<ul>
-  <% @lists.each do |list| %>
-    <li><%= list.name %></li>
-  <% end %>
-</ul>
+<div class="container">
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">Netflix</a>
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<br>
+<div class="container">
+<h1> Fill the form to add a category! </h1>
+<%= simple_form_for (@list) do |f| %>
+  <%= f.input :name %>
+  <%= f.submit "Submit review", class: "btn btn-outline-success" %>
+<% end %>
+</div>

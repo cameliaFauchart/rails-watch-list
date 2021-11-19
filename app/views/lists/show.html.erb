@@ -1,3 +1,32 @@
-<div class= "container">
-<p><%= @list.name %></p>
+<div class="container">
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">Netflix</a>
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<br>
+<div class="alert alert-danger" role="alert">
+  <p> The best of <%= @list.name %> category</p>
 </div>
+<div class= "container">
+<h1><%= @list.name %></h1>
+<div>
+
+</div>
+<div class="card">
+  <% @list.bookmarks.each do |bookmark| %>
+    <div class="card-body">
+    <h5 class="card-title"><%= bookmark.movie.title %></h5>
+    <p class="btn btn-outline-light"><%= link_to bookmark.movie.rating, new_list_bookmark_path(@list) %>⭐</p>
+    <p class="card-text"><%= bookmark.movie.overview %></p>
+    <p class="card-text-comment">``<%= bookmark.comment %></p>
+    <p class="card-text-delete"><%= link_to "delete", bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" }  %></p>
+    </div>
+    <% end %>
+  </div>
+</div>
+

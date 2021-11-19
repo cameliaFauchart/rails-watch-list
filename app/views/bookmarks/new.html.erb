@@ -1,7 +1,19 @@
-<li class="list-group-item">
-      <%= bookmark.comment %>
-      <%= link_to "Remove",
-                  bookmark_path(bookmark),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %>
-    </li>
+<div class="container">
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">Netflix</a>
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<br>
+<div class= "container"><p> Leave a comment to your favorite movie</p>
+<%= simple_form_for([@list, @bookmark]) do |f| %>
+  <%= f.association :movie %>
+  <%= f.input :comment %>
+  <%= f.submit "Submit review", class: "btn btn-outline-success" %>
+<% end %>
+</div>
+
